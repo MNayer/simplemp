@@ -82,7 +82,7 @@ def parallel(function):
 
 
 @addlogging
-def execute(function, it, nprocs, chunksize):
+def execute(function, it, nprocs, chunksize=1):
     queue = mp.Queue(-1)
     listener = mp.Process(target=listener_process, args=(queue, listener_configurer))
     listener.start()
